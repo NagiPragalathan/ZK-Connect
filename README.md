@@ -18,27 +18,75 @@ ZKConnect is a revolutionary hiring platform that leverages advanced technology 
 
 ## Tech Stacks
 
-- **Frontend:** Next.js
-- **Backend:** Node.js (Express)
+- **Frontend:** Next.js, HTML , Css
+- **Backend:** Python, Node.js (Express)
 - **Blockchain Integration:** Web3, Starknet blockchain
 - **Database:** MongoDB
 - **Decentralized Storage:** StackOS
 
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Python (3.x recommended)
+- [pip](https://pip.pypa.io/en/stable/installing/)
+- [Virtualenv](https://virtualenv.pypa.io/en/stable/installation.html) (recommended for managing dependencies)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) (for cloning the repository)
+
+## Clone the Repository
+
+```
+git clone https://github.com/NagiPragalathan/ZK-Connect.git
+```
 ## Installation
 
-To run the frontend locally:
+1. Navigate to the project directory:
+    
+    `cd ZK-Connect` 
+    
+2. Create a virtual environment (optional but recommended):
+    
+    `python -m venv venv` 
+    
+3. Activate the virtual environment:
+    
+    - On Windows:
+      
+        `venv\Scripts\activate` 
+        
+    - On macOS and Linux:
+        
+        `source venv/bin/activate` 
+        
+4. Install project dependencies:
+    
+    `pip install -r requirements.txt` 
+    
 
-1. Navigate to the frontend directory:
- cd frontend
+## Database Setup
 
+1. Migrate the database:
+    
+    `python manage.py migrate` 
+    
+2. Create a superuser (an admin user):
+    
+    `python manage.py createsuperuser` 
+    
+3. Run the development server:
+4. 
+    `python manage.py runserver` 
+    
 
-2. Install dependencies:
-npm install
+The development server will start, and you can access your Django project at `http://localhost:8000/`.
 
+## Usage
 
-3. Start the development server:
-npm run dev
-
+- Access the Django admin panel at `http://localhost:8000/admin/` and log in with the superuser credentials created earlier.
+    
+- Start building your project by creating Django apps, models, views, and templates.
+    
+- Customize this README file with your project-specific information.
 
 
 ## Live Version

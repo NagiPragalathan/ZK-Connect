@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Company Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Add Company Details</h2>
+    <form method="post" enctype="multipart/form-data" class="bg-white p-8 rounded shadow-md w-96">
+        {% csrf_token %}
+        <div class="mb-4">
+            <input type="text" name="company_name" placeholder="Company Name" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <input type="text" name="company_ceo_name" placeholder="CEO Name" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <input type="email" name="company_mail" placeholder="Company Email" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <input type="text" name="company_site" placeholder="Company Website" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <textarea name="company_description" placeholder="Company Description" class="w-full px-3 py-2 border rounded-md"></textarea>
+        </div>
+        <div class="mb-4">
+            <input type="file" name="company_logo" accept="image/*" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <input type="url" name="company_linkedin" placeholder="LinkedIn Profile" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <label for="company_location" class="block text-gray-600 text-sm font-medium mb-1">Company Location:</label>
+            <select name="company_location" class="w-full px-3 py-2 border rounded-md">
+                <option value="Location 1">Location 1</option>
+                <option value="Location 2">Location 2</option>
+                <option value="Location 3">Location 3</option>
+                <option value="Location 4">Location 4</option>
+                <option value="Location 5">Location 5</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <input type="date" name="starting_year" placeholder="Starting Year" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div class="mb-4">
+            <input type="number" name="employees" placeholder="Number of Employees" class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600">
+            Add Company Details
+        </button>
+    </form>
+</body>
+</html>

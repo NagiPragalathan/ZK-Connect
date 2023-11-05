@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Job Post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-4">
+    <h2 class="text-2xl font-semibold mb-4">Update Job Post</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <input type="text" name="job_title" value="{{ job_post.job_title }}" placeholder="Job Title" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="text" name="job_description" value="{{ job_post.job_description }}" placeholder="Job Description" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="date" name="posted_date" value="{{ job_post.posted_date }}" required placeholder="Posted Date" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="location" class="block text-gray-600 text-sm font-medium mb-1">Location:</label>
+            <select name="location" class="w-full px-3 py-2 border rounded-md">
+                <option value="Location 1" {% if job_post.location == "Location 1" %}selected{% endif %}>Location 1</option>
+                <option value="Location 2" {% if job_post.location == "Location 2" %}selected{% endif %}>Location 2</option>
+                <option value="Location 3" {% if job_post.location == "Location 3" %}selected{% endif %}>Location 3</option>
+                <option value="Location 4" {% if job_post.location == "Location 4" %}selected{% endif %}>Location 4</option>
+                <option value="Location 5" {% if job_post.location == "Location 5" %}selected{% endif %}>Location 5</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <input type="number" name="vacancy" value="{{ job_post.vacancy }}" placeholder="Vacancy" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="job_nature" class="block text-gray-600 text-sm font-medium mb-1">Job Nature:</label>
+            <select name="job_nature" class="w-full px-3 py-2 border rounded-md">
+                <option value="Full Time" {% if job_post.job_nature == "Full Time" %}selected{% endif %}>Full Time</option>
+                <option value="Part Time" {% if job_post.job_nature == "Part Time" %}selected{% endif %}>Part Time</option>
+                <option value="Online" {% if job_post.job_nature == "Online" %}selected{% endif %}>Online</option>
+                <option value="Hybrid" {% if job_post.job_nature == "Hybrid" %}selected{% endif %}>Hybrid</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <input type="number" name="salary" value="{{ job_post.salary }}" placeholder="Salary" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="date" name="application_date" value="{{ job_post.application_date }}" required placeholder="Application Date" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="skills_req" class="block text-gray-600 text-sm font-medium mb-1">Skills Required:</label>
+            <select name="skills_req" multiple class="w-full px-3 py-2 border rounded-md">
+                <option value="Skill 1" {% if "Skill 1" in job_post.skills_req %}selected{% endif %}>Skill 1</option>
+                <option value="Skill 2" {% if "Skill 2" in job_post.skills_req %}selected{% endif %}>Skill 2</option>
+                <option value="Skill 3" {% if "Skill 3" in job_post.skills_req %}selected{% endif %}>Skill 3</option>
+                <option value="Skill 4" {% if "Skill 4" in job_post.skills_req %}selected{% endif %}>Skill 4</option>
+                <option value="Skill 5" {% if "Skill 5" in job_post.skills_req %}selected{% endif %}>Skill 5</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <input type="number" name="experience" value="{{ job_post.experience }}" placeholder="Experience" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="education" class="block text-gray-600 text-sm font-medium mb-1">Education:</label>
+            <select name="education" class="w-full px-3 py-2 border rounded-md">
+                <option value="BE" {% if job_post.education == "BE" %}selected{% endif %}>BE</option>
+                <option value="B-Tech" {% if job_post.education == "B-Tech" %}selected{% endif %}>B-Tech</option>
+                <option value="Civil" {% if job_post.education == "Civil" %}selected{% endif %}>Civil</option>
+            </select>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600">
+            Update Job Post
+        </button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Details List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Company Details List</h2>
+    <ul>
+        {% for company_detail in company_details %}
+            <li class="bg-white p-4 rounded-md shadow-md mb-4">
+                <h3 class="text-xl font-semibold">{{ company_detail.company_name }}</h3>
+                <p class="text-sm">CEO: {{ company_detail.company_ceo_name }}</p>
+                <p class="text-sm">Email: {{ company_detail.company_mail }}</p>
+                <p class="text-sm">Location: {{ company_detail.company_location }}</p>
+                <div class="mt-2">
+                    <a href="{% url 'update_company_details' company_detail.company_id %}" class="text-blue-500 hover:text-blue-700 mr-2">Update</a>
+                    <a href="{% url 'delete_company_details' company_detail.company_id %}" class="text-red-500 hover:text-red-700">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

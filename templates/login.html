@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md w-96">
+        <h1 class="text-3xl font-semibold mb-4 text-center">ZkConnect</h1>
+        <h2 class="text-2xl font-semibold mb-4 text-center">Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-4">
+                <input type="text" name="username" placeholder="Username" class="w-full px-3 py-2 border rounded-md" />
+            </div>
+            <div class="mb-4">
+                <input type="password" name="password" placeholder="Password" class="w-full px-3 py-2 border rounded-md" />
+            </div> 
+            <button type="submit" id="loginButton" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600">
+                Login
+            </button>
+            <a href="{% url 'signup' %}" class="text-blue-500 hover:underline block text-center mt-4">Sign up</a>
+        </form>
+    </div>
+</body>
+<script>
+    // Check if MetaMask is installed
+    if (typeof window.ethereum !== 'undefined') {
+        const loginButton = document.getElementById('loginButton');
+
+        // When the login button is clicked
+        loginButton.addEventListener('click', async () => {
+            try {
+                // Request access to the user's MetaMask account
+                await window.ethereum.enable();
+
+                // User has connected their MetaMask wallet
+                alert('MetaMask is connected! You can perform further actions here.');
+
+                // You can now perform additional tasks, such as interacting with smart contracts
+                // or making blockchain transactions.
+
+            } catch (error) {
+                if (error.code === 4001) {
+                    // User rejected the login request
+                    alert('Login request rejected by user.');
+                } else {
+                    console.error(error);
+                    alert('An error occurred while connecting to MetaMask.');
+                }
+            }
+        });
+    } else {
+        alert('MetaMask is not installed. Please install MetaMask to use this feature.');
+    }
+</script>
+
+</html>

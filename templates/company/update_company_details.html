@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Company Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-4">
+    <h2 class="text-2xl font-semibold mb-4">Update Company Details</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-4">
+            <input type="text" name="company_name" value="{{ company.company_name }}" placeholder="Company Name" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="text" name="company_ceo_name" value="{{ company.company_ceo_name }}" placeholder="CEO Name" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="email" name="company_mail" value="{{ company.company_mail }}" placeholder="Company Email" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="text" name="company_site" value="{{ company.company_site }}" placeholder="Company Website" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <textarea name="company_description" placeholder="Company Description" class="w-full px-3 py-2 border rounded-md">{{ company.company_description }}</textarea>
+        </div>
+        <div class="mb-4">
+            <input type="file" name="company_logo" accept="image/*" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="url" name="company_linkedin" value="{{ company.company_linkedin }}" placeholder="LinkedIn Profile" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="company_location" class="block text-gray-600 text-sm font-medium mb-1">Company Location:</label>
+            <select name="company_location" class="w-full px-3 py-2 border rounded-md">
+                <option value="Location 1" {% if company.company_location == "Location 1" %}selected{% endif %}>Location 1</option>
+                <option value="Location 2" {% if company.company_location == "Location 2" %}selected{% endif %}>Location 2</option>
+                <option value="Location 3" {% if company.company_location == "Location 3" %}selected{% endif %}>Location 3</option>
+                <option value="Location 4" {% if company.company_location == "Location 4" %}selected{% endif %}>Location 4</option>
+                <option value="Location 5" {% if company.company_location == "Location 5" %}selected{% endif %}>Location 5</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <input type="date" name="starting_year" value="{{ company.starting_year }}" required placeholder="Starting Year" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <div class="mb-4">
+            <input type="number" name="employees" value="{{ company.employees }}" placeholder="Number of Employees" class="w-full px-3 py-2 border rounded-md">
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600">
+            Update Company Details
+        </button>
+    </form>
+</body>
+</html>

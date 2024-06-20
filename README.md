@@ -92,6 +92,7 @@ The development server will start, and you can access your Django project at `ht
 ## Live Version
 
 For a live version of ZKConnect, visit [https://zk-connect.vercel.app/](https://zk-connect.vercel.app/).
+https://devpost.com/software/zk-connect
 
 ## License
 
